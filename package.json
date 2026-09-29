@@ -1,0 +1,34 @@
+﻿{
+  "name": "distrinov-case-study",
+  "version": "1.0.0",
+  "description": "Distrinov case study — interactive recruitment platform, Claude.ai → Railway migration",
+  "main": "server.js",
+  "scripts": {
+    "dev": "docker compose -f docker-compose.dev.yml up --build",
+    "dev:down": "docker compose -f docker-compose.dev.yml down",
+    "db:seed": "docker compose -f docker-compose.dev.yml exec -T app node db/seed.js",
+    "db:reset": "docker compose -f docker-compose.dev.yml exec -T db psql -U distrinov -d distrinov -f db/schema.sql",
+    "start": "node server.js",
+    "test": "echo 'No tests yet'",
+    "build": "echo 'Static assets only'"
+  },
+  "keywords": ["recruitment", "case-study", "kanbios"],
+  "author": "Thomas Perard",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.14.2",
+    "pg": "^8.11.3",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
+  }
+}
